@@ -1,0 +1,56 @@
+<script>
+  /*
+  Array destructuring in JavaScript allows you to extract values from arrays and 
+  assign them to variables in a concise and readable way. 
+  */
+
+ const alphabet = ['A','B','C','D','E','F'];
+ const numbers = ['1','2','3','4','5','6'];
+
+ //const a = alphabet[0];
+//const b = alphabet[1];
+
+//here alphabet is destructing array,a refers to 1st element in alphabet array , b refers to 2nd alphabet 
+//we're using array destructuring to extract values from alphabets array and assign them to variables.
+const [a,b] = alphabet;
+console.log(a);
+console.log(b);
+
+//To skip first and second element and to print 3rd element 
+const [,,c] = alphabet;
+console.log(a);
+console.log(c);
+
+//To print rest elements , we use spread operator i.e ...
+const [,,,d,...rest] = alphabet;
+console.log(d);
+console.log(rest);
+
+//we can combine two array using spreadoperator 
+const newArray = [...alphabet,...numbers];
+console.log(newArray);
+
+//returning more than one parameer for a function
+function sumAndMultiply(a,b){
+  return [a+b , a*b];
+}
+//const array = sumAndMultiply(3,4);
+//console.log(array);
+const [sum,multiply] = sumAndMultiply(3,4);
+console.log(sum);
+console.log(multiply);
+
+//we can set default values 
+//const [sum,multiply,division = "No division"] = sumAndMultiply(3,4);->default no division is set
+
+
+//Nested Destructuring:
+const nestedNumbers = [1, [2, 3], 4];
+const [firstNum, [secondNum, thirdNum], fourthNum] = nestedNumbers;
+
+console.log(firstNum);  // Output: 1
+console.log(secondNum); // Output: 2
+console.log(thirdNum);  // Output: 3
+console.log(fourthNum); // Output: 4
+
+</script>

@@ -1,0 +1,57 @@
+<script>
+
+//AND : && 
+const name = "";
+const displayName = name && "Default Name";
+console.log(displayName); // Output: ""
+
+//OR : ||
+const defaultName = "John";
+const name1 = "";
+const displayName1 = name || defaultName;
+console.log(displayName1); // Output: "John"
+
+
+//Using && for Conditionals
+const isLoggedIn = true;
+isLoggedIn && console.log("User is logged in");
+
+// Equivalent to:
+if (isLoggedIn) {
+  console.log("User is logged in");
+}
+
+
+//Using || for Assigning Default Values in Function Parameters
+function greet(name) {
+  name = name || "Guest";
+  console.log("Hello, " + name);
+}
+
+greet(); // Output: Hello, Guest
+greet("Alice"); // Output: Hello, Alice
+
+
+//Using || for Running a Function if Undefined
+//If getUser() returns a truthy value (like an object), user is assigned that value.
+//If getUser() returns a falsy value (like undefined), { name: "Guest" } is assigned as a default.
+function getUser() {
+  console.log("Fetching user from database...");
+  return { name: "Alice" };
+}
+
+const user = getUser() || { name: "Guest" };
+console.log("User:", user);
+
+
+//Using ! for Boolean Conversion
+const value1 = "Hello";
+const value2 = 0;
+
+console.log(!value1); // Output: false (because "Hello" is truthy)
+console.log(!value2); // Output: true (because 0 is falsy)
+
+
+
+</script>
+

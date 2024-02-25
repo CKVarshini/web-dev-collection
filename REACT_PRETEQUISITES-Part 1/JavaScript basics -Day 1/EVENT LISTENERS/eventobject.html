@@ -1,0 +1,25 @@
+<script>
+  /*
+Event Object:
+When an event is triggered, an event object is passed to the event handler function as an 
+argument. This object contains information about the event, such as the type of event, the
+ target element, key codes (for keyboard events), mouse coordinates, etc.
+ */
+
+<html>
+<button id="myButton">Click Me</button>
+</html>
+// Using the Event Object
+const button = document.getElementById('myButton');
+
+button.addEventListener('click', function(event) {
+  console.log('Button clicked!');
+  console.log('Target element:', event.target);
+});
+
+/*
+In this example, event.target refers to the element that triggered the event (in this case, 
+the button). The event object provides a lot of useful information that can be used in 
+event handling logic.
+*/
+</script>

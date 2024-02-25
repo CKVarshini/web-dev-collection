@@ -1,0 +1,31 @@
+<!---
+Event listeners in JavaScript are used to listen for specific events that occur on DOM elements, 
+such as a click, keypress, scroll, etc. When the specified event occurs, the associated function,
+also known as an event handler, is executed. This allows developers to create interactive 
+web applications where user actions trigger specific behaviors.
+
+To add an event listener to an element, you typically use the addEventListener() method.
+ 
+Here's the basic syntax:
+element.addEventListener(event, function, useCapture);
+
+1.element: The DOM element you want to attach the event listener to.
+2.event: A string representing the event type, like 'click', 'keyup', 'scroll', etc.
+3.function: The function to execute when the event is triggered.
+4.useCapture (Optional): A boolean value indicating whether to use event capturing (true) or 
+event bubbling (false). Default is false (bubbling phase).
+--->
+
+
+<html>
+  <button id="myButton">Click Me</button>
+</html>
+
+<script>
+const button = document.getElementById('myButton');
+
+button.addEventListener('click', function() {
+  console.log('Button clicked!');
+});
+
+</script>

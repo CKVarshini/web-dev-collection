@@ -1,0 +1,42 @@
+<script>
+
+/*
+  Higher-order functions :
+  Take one or more functions as arguments (i.e., functions as parameters).
+  Return a function as its result.
+*/
+
+// 1: Functions as Parameters:
+function greet(name) {
+  return "Hello, " + name + "!";
+}
+
+function displayMessage(messageFunction, name) {
+  const message = messageFunction(name);
+  console.log(message);
+}
+
+displayMessage(greet, "Alice");
+
+
+//2. Returning a Function:
+/*
+->This inner function captures the factor variable from the outer 
+function's scope due to closures.
+->When multiplyBy(2) is called, it returns the inner function where factor is now 2. 
+This is called a closure.
+->CLOSURE : This concept is known as a closure. It allows the inner function to "remember" 
+and access variables from its parent scope even after the parent function has finished executing.
+*/
+function multiplyBy(factor) {
+  return function (number) {
+    return number * factor;
+  };
+}
+
+const multiplyByTwo = multiplyBy(2);
+console.log(multiplyByTwo(5)); // Output: 10
+
+
+
+</script>

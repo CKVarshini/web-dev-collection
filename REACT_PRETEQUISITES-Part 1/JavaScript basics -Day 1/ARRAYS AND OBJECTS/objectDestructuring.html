@@ -1,0 +1,52 @@
+<script>
+  /*
+  Object destructuring in JavaScript is similar to array destructuring but is used for 
+  extracting values from objects. It allows you to unpack properties from objects into distinct
+   variables, making it easier to work with objects and access their properties.
+  */
+
+  const personOne = {
+  name: 'Alice',
+  lastName: 'Smith',
+  age: 30,
+  address: {
+  city: 'New York',
+  street: '6'
+  },
+  gender:'Male',
+  height:'5.6',
+  weight:'150kg'
+};
+
+const personTwo = {
+  lastName: 'Sally',
+  age: 40,
+  city: 'India'
+};
+
+const {name,age,...rest} = personOne;//since we ae doing object destructuring we use { }
+const {address:{street}} = personOne;//nested object destructuring
+console.log(name);
+console.log(age);
+console.log(rest);
+console.log(street);
+
+//name:firstName : it is taking name property from the person and mapping that to firstName variable
+const {name:firstName} = personOne;
+console.log(firstName);
+
+//default value 
+const {personName= 'Bob',city,favfood = 'Rice'} = personTwo;
+console.log(favfood);
+
+//combine two objects using spread operator
+const personThree = {...personOne,...personTwo};//here personTwo overridden personOne values
+console.log(personThree);
+
+//using object destructuring inside function inside agruments
+function printUser({name,age,favfood='meat'}){
+  console.log(`Name is  ${name}.Age is ${age}.Favourite food is ${favfood}.`);
+}
+
+printUser(personOne);
+</script>

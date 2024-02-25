@@ -1,0 +1,13 @@
+<script>
+  //AJAX Calls (Asynchronous JavaScript and XML): Sending HTTP requests asynchronously to 
+  //fetch data from a server.
+
+console.log('Start AJAX request');
+fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+console.log('End AJAX request');
+//The AJAX request is asynchronous. 'Start AJAX request' and 'End AJAX request' are
+//logged immediately, while the data is fetched in the background.
+</script>

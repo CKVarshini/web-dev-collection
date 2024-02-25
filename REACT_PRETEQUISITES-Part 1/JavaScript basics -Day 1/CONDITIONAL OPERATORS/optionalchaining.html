@@ -1,0 +1,82 @@
+<script>
+/*
+Optional chaining is a feature introduced in ECMAScript 2020 (ES11) that provides a concise way 
+to access properties of an object when it's uncertain whether the property exists or not. 
+It helps to prevent errors that would occur if trying to access properties of null or undefined.
+
+The optional chaining operator ?.
+*/
+
+//1.value1 is obtained by checking each nested property one by one with the && operator.
+//value2 uses optional chaining (?.) to access the nested properties. If any property along the chain is null or undefined, 
+//it stops the evaluation and returns undefined.
+const obj = {
+  property1: {
+    property2: {
+      property3: "value"
+    }
+  }
+};
+
+// Without optional chaining
+const value1 = obj.property1 && obj.property1.property2 && obj.property1.property2.property3;
+console.log(value1); // Output: "value"
+
+// With optional chaining
+const value2 = obj.property1?.property2?.property3;
+console.log(value2); // Output: "value"
+
+//2.checking nested property
+const user = {
+  name: "Alice",
+  address: {
+    street: "123 Main St",
+    city: "New York"
+  }
+};
+
+// Without optional chaining
+const city1 = user.address && user.address.city;
+console.log(city1); // Output: "New York"
+
+// With optional chaining
+const city2 = user.address?.city;
+console.log(city2); // Output: "New York"
+
+
+//3.Array Element Access:
+const arr = [1, 2, 3];
+
+// Without optional chaining
+const element1 = arr && arr[2];
+console.log(element1); // Output: 3
+
+// With optional chaining
+const element2 = arr?.[2];
+console.log(element2); // Output: 3
+
+
+//4.Using with Conditional Statements:
+const user1 = null;
+
+// Without optional chaining and nullish coalescing
+const name1 = user1 && user1.name ? user1.name : "Unknown";
+
+// With optional chaining and nullish coalescing
+const name2 = user1?.name ?? "Unknown";
+
+//5. Function Calls on Potentially Null Objects:
+/*
+Since the left operand obj is falsy, the evaluation stops and result1 is assigned the value of obj, which is null.
+The rest of the expression (obj.someFunction && obj.someFunction()) is not evaluated because obj is falsy. 
+This prevents the error that would occur if trying to call someFunction on null.
+*/
+const obj1 = null;
+
+// Without optional chaining
+const result1 = ob1j && obj1.someFunction && obj1.someFunction();
+
+// With optional chaining
+const result2 = obj1?.someFunction?.();
+
+</script>

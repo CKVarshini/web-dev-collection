@@ -1,0 +1,104 @@
+<script>
+  /*Arrow functions provide a concise syntax for writing functions,
+   especially useful for anonymous functions and functions that do not require their own this.
+  
+   const functionName = (parameters) => {
+  // function body
+  return value; // optional
+};
+
+*/
+
+
+//1.Arrow Function without Parameters:
+const sayHello = () => {
+  return "Hello!";
+};
+console.log(sayHello()); // Output: Hello!
+
+
+//2.Arrow Function with Parameters:
+const greet = (name) => {
+  return "Hello, " + name + "!";
+};
+
+console.log(greet("Charlie")); // Output: Hello, Charlie!
+
+
+//3.Implicit Return Arrow Function:
+const multiply = (a, b) => a * b;
+console.log(multiply(4, 6)); // Output: 24
+
+
+//4.Arrow Function in Array Operations (map):
+const numbers = [1, 2, 3, 4, 5];
+const squared = numbers.map(num => num * num);
+console.log(squared); // Output: [1, 4, 9, 16, 25]
+
+
+//5.Arrow Function with Object Literals:
+const createPerson = (name, age) => ({
+  name: name,
+  age: age
+});
+console.log(createPerson("Bob", 30)); // Output: { name: 'Bob', age: 30 }
+
+
+//6. Arrow Function with Default Parameters:
+const greetUser = (name = "Guest") => {
+  return "Hello, " + name + "!";
+};
+console.log(greetUser()); // Output: Hello, Guest!
+console.log(greetUser("Emily")); // Output: Hello, Emily!
+
+
+//7.Arrow Function with Callbacks:
+const numbers2 = [1, 2, 3, 4, 5];
+const evenNumbers = numbers2.filter(num => num % 2 === 0);
+console.log(evenNumbers); // Output: [2, 4]
+
+//8.Arrow Functions in Event Listeners:
+const button = document.getElementById("myButton");
+button.addEventListener("click", () => {
+  console.log("Button clicked!");
+});
+
+
+//9.Arrow Function with this in Classes:
+const myObject = {
+  name: 'Alice',
+  logName: function() {
+    setTimeout(() => {
+      console.log(this.name);
+    }, 1000);
+  }
+};
+
+myObject.logName(); // Output: Alice
+
+//9.
+class Person{
+  constructor(name){
+    this.name = name;
+  }
+
+  printNameArrow(){
+    setTimeout(() => {
+      console.log('Arrow : ' +this.name)
+    },100)
+  }
+
+  printNameFunction() {
+    setTimeout(function() {
+      console.log('Function : ' + this.name)
+    },100)
+  }
+}
+
+let person = new Person('Bob');
+person.printNameArrow();
+person.printNameFunction(); 
+
+
+
+</script>

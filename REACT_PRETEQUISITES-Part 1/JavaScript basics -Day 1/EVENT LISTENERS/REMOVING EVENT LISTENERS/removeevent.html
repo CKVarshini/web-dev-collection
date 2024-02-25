@@ -1,0 +1,35 @@
+<!--
+Eemove event listeners using removeEventListener(). T
+his is particularly useful if you want to stop listening for events on an element.
+
+Syntax:
+element.removeEventListener(event, function, useCapture);
+
+1.element: The DOM element from which to remove the event listener.
+2.event: The event type for which to remove the listener.
+3.function: The function that was originally added as the event handler.
+4.useCapture (Optional): Should match the useCapture argument used when adding the listener.
+-->
+
+<html>
+  <button id="myButton">Click Me</button>
+
+  <script>
+    const button = document.getElementById('myButton');
+
+// Function to be used as event handler
+function handleClick() {
+  console.log('Button clicked!');
+}
+
+// Add event listener
+button.addEventListener('click', handleClick);
+
+// After some time, remove the event listener
+setTimeout(() => {
+  button.removeEventListener('click', handleClick);
+  console.log('Event listener removed.');
+}, 5000);
+
+  </script>
+</html>
